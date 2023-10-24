@@ -51,9 +51,10 @@ jobs:
 
       # 安装 Node.js
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: "pnpm"
 
       # 安装 Rust
       - name: Install Rust stable
