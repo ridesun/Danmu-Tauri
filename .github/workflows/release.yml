@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # 安装 Node.js
+      - uses: pnpm/action-setup@v2
       - name: Setup node
         uses: actions/setup-node@v3
         with:
