@@ -51,6 +51,8 @@ jobs:
 
       # 安装 Node.js
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8.9.2
       - name: Setup node
         uses: actions/setup-node@v3
         with:
