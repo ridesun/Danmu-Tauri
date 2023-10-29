@@ -11,6 +11,12 @@ use tokio::sync::Mutex;
 use tokio::{join, spawn};
 
 #[tauri::command]
+fn clear_login() -> Result<(), String> {
+    plutus::clear_login().expect("");
+    Ok(())
+}
+
+#[tauri::command]
 async fn login() -> Result<(), String> {
     let (tx, rx) = tokio::sync::oneshot::channel::<String>();
     let qr = spawn({
@@ -107,7 +113,8 @@ fn main() {
             get_danmu,
             login,
             getqr,
-            newdanmu
+            newdanmu,
+            clear_login
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

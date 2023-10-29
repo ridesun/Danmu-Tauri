@@ -14,7 +14,11 @@ const newwindow = () => {
     invoke('newdanmu', { room_id: value.value.toString() });
 }
 
-var login = async () => {
+const relogin = async () => {
+    invoke("clear_login");
+    location.reload();
+};
+const login = async () => {
     const get_qr = setInterval(() => {
         invoke('getqr').then((url) => {
             document.getElementById("qrCodeBox")!.innerHTML = "";
@@ -41,6 +45,7 @@ var login = async () => {
             :show-button="false" />
     </div>
     <n-button @click="newwindow()" type="primary">新窗口</n-button>
+    <n-button @click="relogin()" type="primary">清除Cookie</n-button>
 </template>
 
 <style>
